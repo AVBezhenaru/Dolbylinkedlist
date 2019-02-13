@@ -53,7 +53,7 @@ class LinkedList2:
         if self.head is None:
             return None
 
-        if node.next is None:
+        if node.value == val and node.next is None:
             self.head = None
             self.tail = self.head
             return
@@ -152,27 +152,27 @@ class LinkedList2:
 
 
 list = LinkedList2()
-list.add_in_tail(Node(3))
 list.add_in_tail(Node(1))
-list.add_in_tail(Node(3))
-list.add_in_tail(Node(1))
-list.add_in_tail(Node(1))
-list.add_in_tail(Node(3))
+# list.add_in_tail(Node(3))
+# list.add_in_tail(Node(3))
+# list.add_in_tail(Node(3))
+# list.add_in_tail(Node(3))
+# list.add_in_tail(Node(3))
 #
 # list.add_in_head(Node(4))
 # list.print_all_nodes()
 # print("list len",list.len())
 #
-list.delete(3)
 list.print_all_nodes()
+list.delete(3)
 # list.clean()
 print("list len",list.len())
 list.print_all_nodes()
 # #
 a = list.head
 b = list.tail
-print("list head value", a.value)
-print("list tail value", b.value)
+print("list head value", a)
+print("list tail value", b)
 
 # *****TESTS*****
 
