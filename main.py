@@ -64,7 +64,10 @@ class LinkedList2:
                 if node.next is None:
                     self.tail = self.head
                 node = node.next
-                if all == True:
+                if all == False:
+                    return
+
+                else:
                     continue
 
             if node.value == val:
@@ -75,7 +78,6 @@ class LinkedList2:
 
                 node.prev.next = node.next
                 node.next.prev = node.prev
-
 
                 if all == False:
                     return
@@ -140,34 +142,37 @@ class LinkedList2:
 
 
 
-    # def print_all_nodes(self):
-    #     node = self.head
-    #
-    #     while node:
-    #         print(node.value)
-    #         node = node.next
+    def print_all_nodes(self):
+        node = self.head
+
+        while node:
+            print(node.value)
+            node = node.next
 
 
 
-# list = LinkedList2()
-# list.add_in_tail(Node(1))
-# list.add_in_tail(Node(2))
-# list.add_in_tail(Node(3))
+list = LinkedList2()
+list.add_in_tail(Node(3))
+list.add_in_tail(Node(1))
+list.add_in_tail(Node(3))
+list.add_in_tail(Node(1))
+list.add_in_tail(Node(1))
+list.add_in_tail(Node(3))
 #
 # list.add_in_head(Node(4))
 # list.print_all_nodes()
 # print("list len",list.len())
 #
-# # list.delete(3)
-# # list.print_all_nodes()
-# # list.clean()
-# # print("list len",list.len())
-# # list.print_all_nodes()
+list.delete(3)
+list.print_all_nodes()
+# list.clean()
+print("list len",list.len())
+list.print_all_nodes()
 # #
-# a = list.head
-# b = list.tail
-# print("list head value", a.value)
-# print("list tail value", b.value)
+a = list.head
+b = list.tail
+print("list head value", a.value)
+print("list tail value", b.value)
 
 # *****TESTS*****
 
@@ -278,12 +283,12 @@ def deleteTest5():
     print("Delete test5")
     list = LinkedList2()
     list.add_in_tail(Node(3))
-    list.add_in_tail(Node(2))
-    list.add_in_tail(Node(2))
+    list.add_in_tail(Node(4))
+    list.add_in_tail(Node(4))
 
     list.delete(3)
     a = list.find_all(3)
-    if a == [] and list.head.value == 2 and list.tail.value == 2:
+    if a == [] and list.head.value == 4 and list.tail.value == 4:
         print("Test OK")
     else:
         print("Test ERROR")
