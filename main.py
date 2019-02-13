@@ -152,10 +152,16 @@ class LinkedList2:
 
 
 list = LinkedList2()
+# list.add_in_tail(Node(1))
+# list.add_in_tail(Node(4))
 list.add_in_tail(Node(1))
-# list.add_in_tail(Node(3))
-# list.add_in_tail(Node(3))
-# list.add_in_tail(Node(3))
+list.add_in_tail(Node(1))
+list.add_in_tail(Node(2))
+list.add_in_tail(Node(2))
+list.add_in_tail(Node(2))
+list.add_in_tail(Node(3))
+list.add_in_tail(Node(3))
+list.add_in_tail(Node(4))
 # list.add_in_tail(Node(3))
 # list.add_in_tail(Node(3))
 #
@@ -164,15 +170,15 @@ list.add_in_tail(Node(1))
 # print("list len",list.len())
 #
 list.print_all_nodes()
-list.delete(3)
+list.delete(4)
 # list.clean()
 print("list len",list.len())
 list.print_all_nodes()
 # #
 a = list.head
 b = list.tail
-print("list head value", a)
-print("list tail value", b)
+print("list head value", a.value)
+print("list tail value", b.value)
 
 # *****TESTS*****
 
@@ -271,8 +277,8 @@ def deleteTest4():
     list.add_in_tail(Node(3))
 
     list.delete(3)
-    a = list.find_all(3)
-    if a == [] and list.head == None and list.tail == None:
+    a = list.len()
+    if a == 0 and list.head == None and list.tail == None:
         print("Test OK")
     else:
         print("Test ERROR")
@@ -283,12 +289,13 @@ def deleteTest5():
     print("Delete test5")
     list = LinkedList2()
     list.add_in_tail(Node(3))
+    list.add_in_tail(Node(3))
     list.add_in_tail(Node(4))
     list.add_in_tail(Node(4))
 
     list.delete(3)
-    a = list.find_all(3)
-    if a == [] and list.head.value == 4 and list.tail.value == 4:
+    a = list.len()
+    if a == 3 and list.head.value == 3 and list.tail.value == 4:
         print("Test OK")
     else:
         print("Test ERROR")
@@ -300,11 +307,12 @@ def deleteTest6():
     list = LinkedList2()
     list.add_in_tail(Node(2))
     list.add_in_tail(Node(3))
+    list.add_in_tail(Node(3))
     list.add_in_tail(Node(2))
 
     list.delete(3)
-    a = list.find_all(3)
-    if a == [] and list.head.value == 2 and list.tail.value == 2:
+    a = list.len()
+    if a == 3 and list.head.value == 2 and list.tail.value == 2:
         print("Test OK")
     else:
         print("Test ERROR")
@@ -317,15 +325,45 @@ def deleteTest7():
     list.add_in_tail(Node(2))
     list.add_in_tail(Node(2))
     list.add_in_tail(Node(3))
+    list.add_in_tail(Node(3))
 
     list.delete(3)
-    a = list.find_all(3)
-    if a == [] and list.head.value == 2 and list.tail.value == 2:
+    a = list.len()
+    if a == 3 and list.head.value == 2 and list.tail.value == 3:
         print("Test OK")
     else:
         print("Test ERROR")
 
 deleteTest7()
+
+def deleteTest8():
+    print("Delete test8")
+    list = LinkedList2()
+    list.add_in_tail(Node(1))
+
+    list.delete(3)
+    a = list.len()
+    if a == 1 and list.head.value == 1 and list.tail.value == 1:
+        print("Test OK")
+    else:
+        print("Test ERROR")
+
+deleteTest8()
+
+def deleteTest9():
+    print("Delete test9")
+    list = LinkedList2()
+    list.add_in_tail(Node(3))
+    list.add_in_tail(Node(3))
+
+    list.delete(3)
+    a = list.len()
+    if a == 1 and list.head.value == 3 and list.tail.value == 3:
+        print("Test OK")
+    else:
+        print("Test ERROR")
+
+deleteTest9()
 
 def cleanTest():
     print("cleanTest")
