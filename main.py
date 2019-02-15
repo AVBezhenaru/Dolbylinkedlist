@@ -60,10 +60,15 @@ class LinkedList2:
 
         while node:
             if self.head.value == val:
+                node.next.prev = None
                 self.head = node.next
-                if node.next is None:
-                    self.tail = self.head
+                if node.next == self.tail:
+                    self.head.next = None
+                    self.tail.prev = None
+                    self.head = self.tail
+
                 node = node.next
+
                 if all == False:
                     return
 
@@ -108,17 +113,25 @@ class LinkedList2:
         if afterNode == None:
             if node == None:
                 self.head = newNode
-                self.tail = self.head
+                self.tail = newNode
 
             elif node:
                 self.add_in_tail(newNode)
 
+            return
+
         while node:
             if node == afterNode:
-                newNode.prev = node.prev
+                if node == self.tail:
+                    self.tail = newNode
+                    self.tail.prev = node
+                    node.next = self.tail
+                    return
+
+                newNode.prev = node
                 newNode.next = node.next
-                node.next = newNode
                 node.next.prev = newNode
+                node.next = newNode
 
                 if newNode.next == None:
                     self.tail = newNode
@@ -151,34 +164,42 @@ class LinkedList2:
 
 
 
-list = LinkedList2()
-# list.add_in_tail(Node(1))
-# list.add_in_tail(Node(4))
-list.add_in_tail(Node(1))
-list.add_in_tail(Node(1))
-list.add_in_tail(Node(2))
-list.add_in_tail(Node(2))
-list.add_in_tail(Node(2))
-list.add_in_tail(Node(3))
-list.add_in_tail(Node(3))
-list.add_in_tail(Node(4))
+# list = LinkedList2()
+# list.add_in_tail(Node(2))
 # list.add_in_tail(Node(3))
-# list.add_in_tail(Node(3))
-#
-# list.add_in_head(Node(4))
+
+# a = list.head
+# b = list.tail
+# print("head", a)
+# print("tail", b)
+# print("list head prev before delete", a.prev)
+# print("list head next before delete", a.next)
+# print("list tail prev before delete", b.prev)
+# print("list tail next before delete", b.next)
 # list.print_all_nodes()
-# print("list len",list.len())
-#
-list.print_all_nodes()
-list.delete(4)
+# list.insert(list.find(2), Node(4))
+# list.delete(2)
+# list.add_in_head(Node(1))
+# a = list.head
+# b = list.tail
+# print("head", a)
+# print("tail", b)
+# print("list head prev after delete", a.prev)
+# print("list head next after delete", a.next)
+# print("list tail prev after delete", b.prev)
+# print("list tail next after delete", b.next)
+# list.print_all_nodes()
+
 # list.clean()
-print("list len",list.len())
-list.print_all_nodes()
-# #
-a = list.head
-b = list.tail
-print("list head value", a.value)
-print("list tail value", b.value)
+# print("list len",list.len())
+# list.print_all_nodes()
+# # #
+# a = list.head
+# b = list.tail
+# print("list head value", a.value)
+# print("list head prev after delete", a.prev)
+# print("list head next after delete", a.next)
+# print("list tail value", b.value)
 
 # *****TESTS*****
 
