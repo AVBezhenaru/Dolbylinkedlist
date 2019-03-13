@@ -164,31 +164,32 @@ class LinkedList2:
 
 
 
-# list = LinkedList2()
-# list.add_in_tail(Node(2))
-# list.add_in_tail(Node(3))
+list = LinkedList2()
+list.add_in_tail(Node(4))
+list.add_in_tail(Node(3))
+list.add_in_tail(Node(2))
 
-# a = list.head
-# b = list.tail
-# print("head", a)
-# print("tail", b)
-# print("list head prev before delete", a.prev)
-# print("list head next before delete", a.next)
-# print("list tail prev before delete", b.prev)
-# print("list tail next before delete", b.next)
-# list.print_all_nodes()
-# list.insert(list.find(2), Node(4))
+a = list.head
+b = list.tail
+print("head", a)
+print("tail", b)
+print("list head prev before delete", a.prev)
+print("list head next before delete", a.next)
+print("list tail prev before delete", b.prev)
+print("list tail next before delete", b.next)
+list.print_all_nodes()
+# list.insert(list.find(4), Node(4))
 # list.delete(2)
-# list.add_in_head(Node(1))
-# a = list.head
-# b = list.tail
-# print("head", a)
-# print("tail", b)
-# print("list head prev after delete", a.prev)
-# print("list head next after delete", a.next)
-# print("list tail prev after delete", b.prev)
-# print("list tail next after delete", b.next)
-# list.print_all_nodes()
+list.add_in_head(Node(1))
+a = list.head
+b = list.tail
+print("head", a)
+print("tail", b)
+print("list head prev after delete", a.prev)
+print("list head next after delete", a.next)
+print("list tail prev after delete", b.prev)
+print("list tail next after delete", b.next)
+list.print_all_nodes()
 
 # list.clean()
 # print("list len",list.len())
